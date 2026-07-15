@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Event Listeners</title>
+</head>
+<body>
+
+<h2>JavaScript Events Demo</h2>
+
+<!-- Click & Double Click -->
+<button id="btn">Click Me</button><br><br>
+
+<!-- Mouse Events -->
+<div id="box" style="width:250px;height:100px;background:lightblue;
+text-align:center;line-height:100px;">
+    Move Mouse Here
+</div><br>
+
+<!-- Keyboard Events -->
+<label>Enter Text:</label>
+<input type="text" id="textBox" placeholder="Type here"><br><br>
+
+<!-- List Element -->
+<label>Select a Course:</label>
+<select id="course">
+    <option value="">--Select--</option>
+    <option>Java</option>
+    <option>Python</option>
+    <option>JavaScript</option>
+</select><br><br>
+
+<!-- Form Submit -->
+<form id="myForm">
+    Name:
+    <input type="text" required>
+    <input type="submit" value="Submit">
+</form>
+
+<p id="output"></p>
+
+<script>
+let output = document.getElementById("output");
+let btn = document.getElementById("btn");
+let box = document.getElementById("box");
+let course = document.getElementById("course");
+let form = document.getElementById("myForm");
+let textBox = document.getElementById("textBox");
+
+// Click
+btn.addEventListener("click", function() {
+    output.innerHTML = "Click Event";
+});
+
+// Double Click
+btn.addEventListener("dblclick", function() {
+    output.innerHTML = "Double Click Event";
+});
+
+// Mouse Down
+box.addEventListener("mousedown", function() {
+    output.innerHTML = "Mouse Down Event";
+});
+
+// Mouse Over
+box.addEventListener("mouseover", function() {
+    output.innerHTML = "Mouse Over Event";
+});
+
+// Mouse Out
+box.addEventListener("mouseout", function() {
+    output.innerHTML = "Mouse Out Event";
+});
+
+// Mouse Move
+box.addEventListener("mousemove", function() {
+    output.innerHTML = "Mouse Move Event";
+});
+
+// Key Down
+textBox.addEventListener("keydown", function(event) {
+    output.innerHTML = "Key Down Event: " + event.key;
+});
+
+// Key Up
+textBox.addEventListener("keyup", function(event) {
+    output.innerHTML = "Key Up Event: " + event.key;
+});
+
+// List (Change Event)
+course.addEventListener("change", function() {
+    output.innerHTML = "Selected Course: " + course.value;
+});
+
+// Submit Event
+form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent page refresh
+    output.innerHTML = "Form Submitted Successfully";
+});
+</script>
+
+</body>
+</html>
